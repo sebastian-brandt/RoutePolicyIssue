@@ -12,8 +12,8 @@ public class MyRouteBuilder extends EndpointRouteBuilder {
     public final void configure() {
         // @formatter:off
 
-		from(seda("test"))
-			.routePolicy(new RestartOnInactivityRoutePolicy())
+		from(seda("test")).routeId("TestRoute")
+			.routePolicy(new RestartRoutePolicy())
 			.onException(Exception.class)
 				.handled(true)
 				.log(ERROR, "test", "Error while consuming feed: ${exception.message}")
