@@ -1,4 +1,4 @@
-Simple Spring Boot Camel 4.0.3 LTS application that restarts a route when no messages are received.
+Simple Camel 4.0.3 LTS application that restarts a route every 500ms.
 
 Let it run for a couple of minutes and take a heap dump: 
 
