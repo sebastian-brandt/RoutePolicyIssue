@@ -15,6 +15,9 @@ import java.util.concurrent.TimeUnit;
 
 import static java.util.Collections.synchronizedSet;
 
+/**
+ * Restarts controlled routes every 500ms.
+ */
 public class RestartRoutePolicy extends RoutePolicySupport implements CamelContextAware  {
 
     private static final Logger LOG = LoggerFactory.getLogger(RestartRoutePolicy.class);

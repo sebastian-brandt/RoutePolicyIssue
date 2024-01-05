@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id "org.springframework.boot" version "3.1.7"
+    id "application"
 }
 
 group = 'org.example'
@@ -10,20 +10,19 @@ repositories {
     mavenCentral()
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+application {
+    mainClassName = "org.example.Application"
 }
 
 dependencies {
-    implementation platform("org.springframework.boot:spring-boot-dependencies:3.1.7")
-    implementation platform('org.apache.camel.springboot:camel-spring-boot-dependencies:4.0.3')
-
-    implementation 'org.apache.camel.springboot:camel-spring-boot-starter'
+    implementation platform('org.apache.camel:camel-bom:4.0.3') // Latest LTS version
     implementation 'org.apache.camel:camel-endpointdsl'
+    implementation 'org.apache.camel:camel-main'
+    implementation 'org.apache.camel:camel-seda'
+    implementation 'org.slf4j:slf4j-simple:2.0.10'
 
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //testImplementation platform('org.junit:junit-bom:5.9.1')
+    //testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 test {
